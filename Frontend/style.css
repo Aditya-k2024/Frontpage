@@ -1,102 +1,208 @@
-body{
+/* Global Reset */
+* {
     margin: 0;
-    background-color: cadetblue;
     padding: 0;
-    
-
-    
+    box-sizing: border-box;
 }
 
-.sign{
-    align-content: center;
-    justify-content: center;
-    text-align: center;
-    display: flex;
-   
-}
-#email{margin-bottom: 20px;
-width: 200px;
-height:30px;
-
-
-}
-#password{
-    width: 200px;
-height:30px;
-
-
-}
-#submit{ margin-top: 30px;
-
-height: 30px;
-}
-.ss{ display: inline-block;
-}
-.acc{ text-align: center;}/* Applying Dark Background and Serif Font */
+/* Background and Page Styling */
 body {
-    margin: 0;
-    padding: 0;
     font-family: 'Georgia', serif;  /* Elegant serif font */
-    background: #121212;  /* Darker background */
-    color: #f0f0f0;  /* Light text for contrast */
-}
-
-/* Centering the form */
-.sign {
+    color: #fff;
+    height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    overflow: hidden;
+    background: linear-gradient(135deg, #6a0dad, #8e44ad);  /* Purple gradient */
 }
 
-/* Styling input fields */
-#email, #password {
-    margin-bottom: 20px;
-    width: 260px;
-    height: 40px;
-    border: 2px solid #555;  /* Softer border */
-    border-radius: 6px;
-    padding: 10px;
-    background-color: #1e1e1e;  /* Dark field background */
-    color: #e0e0e0;  /* Light text color */
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.8);  /* Subtle shadow */
+/* Empty Circle at Top Left for Logo */
+.logo-circle {
+    position: fixed;
+    top: 30px;
+    left: 30px;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background: transparent;  /* Empty circle */
+    border: 3px solid #fff;   /* White border */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.8);  /* Shadow effect */
+    z-index: 2;
+    transition: 0.3s;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Circle Hover Effect */
+.logo-circle:hover {
+    transform: scale(1.1);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.9);  /* Stronger shadow on hover */
+}
+
+/* Faster and More Randomly Moving Stars */
+.stars {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    overflow: hidden;
+    background: transparent;
+}
+
+/* Multiple Layers of Stars for Depth */
+.stars::before, .stars::after {
+    content: "";
+    position: absolute;
+    width: 300vw;
+    height: 300vh;
+    background: radial-gradient(circle, #ffffff 2px, transparent 2px);
+    background-size: 80px 80px;
+    animation: randomMove1 6s linear infinite, twinkle 2s alternate infinite;  /* Faster speed */
+}
+
+/* Second Layer with Randomized Movement */
+.stars::after {
+    animation: randomMove2 8s linear infinite, twinkle 3s alternate infinite;  /* Different motion */
+}
+
+/* Keyframes for Faster, More Random Motion */
+@keyframes randomMove1 {
+    0% { transform: translate(0, 0); }
+    20% { transform: translate(-50vw, 70vh) rotate(15deg); }
+    40% { transform: translate(60vw, -50vh) rotate(-25deg); }
+    60% { transform: translate(-80vw, 30vh) rotate(45deg); }
+    80% { transform: translate(90vw, -40vh) rotate(-35deg); }
+    100% { transform: translate(0, 0); }
+}
+
+@keyframes randomMove2 {
+    0% { transform: translate(0, 0); }
+    25% { transform: translate(80vw, -60vh) rotate(-20deg); }
+    50% { transform: translate(-60vw, 40vh) rotate(35deg); }
+    75% { transform: translate(100vw, -30vh) rotate(-45deg); }
+    100% { transform: translate(0, 0); }
+}
+
+/* Twinkling Effect */
+@keyframes twinkle {
+    0% {
+        opacity: 0.5;
+    }
+    50% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0.5;
+    }
+}
+
+/* Main Container */
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    z-index: 1;
+}
+
+/* Form Box */
+.form-box {
+    background: rgba(44, 0, 62, 0.95);  /* Dark purple with transparency */
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.9);
+    width: 400px;
+    text-align: center;
     transition: 0.3s;
 }
 
-/* Field hover effect */
-#email:hover, #password:hover {
-    box-shadow: 0 6px 15px rgba(0, 0, 0, 1);
-    transform: scale(1.03);
+/* ProConnect Logo */
+.logo {
+    font-size: 40px;
+    font-weight: 700;
+    color: #f0f0f0;
 }
 
-/* Styling submit button */
-#submit {
-    width: 260px;
-    height: 45px;
-    margin-top: 30px;
-    background-color: #ff4f41;  /* Bold button color */
-    color: #fff;
-    border: none;
-    border-radius: 6px;
-    cursor: pointer;
-    transition: 0.3s ease;
-    box-shadow: 0 5px 12px rgba(0, 0, 0, 0.9);  /* Strong button shadow */
-}
-
-/* Hover effect */
-#submit:hover {
-    background-color: #e03a2e;
-    transform: scale(1.08);
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 1);
-}
-
-/* Additional styling */
-.ss {
-    display: inline-block;
-}
-
-.acc {
-    text-align: center;
-    margin-top: 20px;
+/* Tagline */
+.tagline {
+    margin: 10px 0 30px;
     font-size: 16px;
+    color: #d1d1d1;
+}
+
+/* Input Fields */
+label {
+    display: block;
+    text-align: left;
+    margin-bottom: 5px;
+    font-size: 14px;
+}
+
+input {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 20px;
+    border: 2px solid #7a1fa2;
+    border-radius: 5px;
+    background: #4b0082;  /* Dark input field */
+    color: #fff;
+    font-family: 'Georgia', serif;  /* Serif font for inputs */
+    transition: 0.3s;
+}
+
+/* Input Hover Effect */
+input:hover, input:focus {
+    border: 2px solid #a64ca6;
+    box-shadow: 0 4px 12px rgba(255, 255, 255, 0.2);
+}
+
+/* Submit Button */
+#submit {
+    width: 100%;
+    padding: 12px;
+    background: #9b59b6;  /* Bright purple */
+    color: #fff;
+    font-size: 16px;
+    font-family: 'Georgia', serif;  /* Serif font for button */
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+/* Button Hover Effect */
+#submit:hover {
+    background: #8e44ad;
+    transform: scale(1.05);
+}
+
+/* Links */
+.links {
+    margin-top: 20px;
+}
+
+.links a {
+    color: #bb86fc;
+    text-decoration: none;
+    transition: 0.3s;
+    font-family: 'Georgia', serif;  /* Serif font for links */
+}
+
+.links a:hover {
+    color: #d7b2ff;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .form-box {
+        width: 90%;
+        padding: 30px;
+    }
+
+    .logo-circle {
+        top: 10px;
+        left: 15px;
+    }
 }
