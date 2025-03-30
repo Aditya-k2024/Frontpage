@@ -1,0 +1,102 @@
+body{
+    margin: 0;
+    background-color: cadetblue;
+    padding: 0;
+    
+
+    
+}
+
+.sign{
+    align-content: center;
+    justify-content: center;
+    text-align: center;
+    display: flex;
+   
+}
+#email{margin-bottom: 20px;
+width: 200px;
+height:30px;
+
+
+}
+#password{
+    width: 200px;
+height:30px;
+
+
+}
+#submit{ margin-top: 30px;
+
+height: 30px;
+}
+.ss{ display: inline-block;
+}
+.acc{ text-align: center;}/* Applying Dark Background and Serif Font */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Georgia', serif;  /* Elegant serif font */
+    background: #121212;  /* Darker background */
+    color: #f0f0f0;  /* Light text for contrast */
+}
+
+/* Centering the form */
+.sign {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+/* Styling input fields */
+#email, #password {
+    margin-bottom: 20px;
+    width: 260px;
+    height: 40px;
+    border: 2px solid #555;  /* Softer border */
+    border-radius: 6px;
+    padding: 10px;
+    background-color: #1e1e1e;  /* Dark field background */
+    color: #e0e0e0;  /* Light text color */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.8);  /* Subtle shadow */
+    transition: 0.3s;
+}
+
+/* Field hover effect */
+#email:hover, #password:hover {
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 1);
+    transform: scale(1.03);
+}
+
+/* Styling submit button */
+#submit {
+    width: 260px;
+    height: 45px;
+    margin-top: 30px;
+    background-color: #ff4f41;  /* Bold button color */
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: 0.3s ease;
+    box-shadow: 0 5px 12px rgba(0, 0, 0, 0.9);  /* Strong button shadow */
+}
+
+/* Hover effect */
+#submit:hover {
+    background-color: #e03a2e;
+    transform: scale(1.08);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 1);
+}
+
+/* Additional styling */
+.ss {
+    display: inline-block;
+}
+
+.acc {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 16px;
+}
