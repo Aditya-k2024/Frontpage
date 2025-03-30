@@ -41,8 +41,8 @@ body {
     box-shadow: 0 12px 24px rgba(0, 0, 0, 0.9);  /* Stronger shadow on hover */
 }
 
-/* Faster and More Randomly Moving Stars */
-.stars {
+/* Rotating Small Dots */
+.dots {
     position: fixed;
     width: 100%;
     height: 100%;
@@ -51,50 +51,38 @@ body {
     background: transparent;
 }
 
-/* Multiple Layers of Stars for Depth */
-.stars::before, .stars::after {
+/* Generating Small Grey Dots */
+.dots::before, .dots::after {
     content: "";
     position: absolute;
     width: 300vw;
     height: 300vh;
-    background: radial-gradient(circle, #ffffff 2px, transparent 2px);
-    background-size: 80px 80px;
-    animation: randomMove1 6s linear infinite, twinkle 2s alternate infinite;  /* Faster speed */
+    background: radial-gradient(circle, #b0b0b0 2px, transparent 2px);
+    background-size: 50px 50px;  /* Smaller dot size */
+    animation: rotateDots 50s linear infinite;  /* Slow rotation */
 }
 
-/* Second Layer with Randomized Movement */
-.stars::after {
-    animation: randomMove2 8s linear infinite, twinkle 3s alternate infinite;  /* Different motion */
+/* Second Layer for Depth */
+.dots::after {
+    animation: rotateDots 60s linear infinite;  
 }
 
-/* Keyframes for Faster, More Random Motion */
-@keyframes randomMove1 {
-    0% { transform: translate(0, 0); }
-    20% { transform: translate(-50vw, 70vh) rotate(15deg); }
-    40% { transform: translate(60vw, -50vh) rotate(-25deg); }
-    60% { transform: translate(-80vw, 30vh) rotate(45deg); }
-    80% { transform: translate(90vw, -40vh) rotate(-35deg); }
-    100% { transform: translate(0, 0); }
-}
-
-@keyframes randomMove2 {
-    0% { transform: translate(0, 0); }
-    25% { transform: translate(80vw, -60vh) rotate(-20deg); }
-    50% { transform: translate(-60vw, 40vh) rotate(35deg); }
-    75% { transform: translate(100vw, -30vh) rotate(-45deg); }
-    100% { transform: translate(0, 0); }
-}
-
-/* Twinkling Effect */
-@keyframes twinkle {
+/* Clockwise Circular Rotation Animation */
+@keyframes rotateDots {
     0% {
-        opacity: 0.5;
+        transform: rotate(0deg) translate(-150vw, -150vh);
+    }
+    25% {
+        transform: rotate(90deg) translate(150vw, -150vh);
     }
     50% {
-        opacity: 1;
+        transform: rotate(180deg) translate(150vw, 150vh);
+    }
+    75% {
+        transform: rotate(270deg) translate(-150vw, 150vh);
     }
     100% {
-        opacity: 0.5;
+        transform: rotate(360deg) translate(-150vw, -150vh);
     }
 }
 
